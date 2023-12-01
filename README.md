@@ -1,9 +1,10 @@
 # File_Organizer
 Organizador de arquivos feito com python.
+Eu estava com a pasta "Downloads" desorganizada por conta da quantidade de arquivos e estava me perguntando por onde começar,
+foi então que eu pensei "por que não codar algo que me ajude com esse problema?".
+Ele organiza os seus arquivos de acordo com o seu tipo, dentro de pastas criadas automaticamente no diretorio indicado.
 
-## Status: In progress 🚧
-
-- Opção de personalizar o nome das pastas
+## Status: Completed ✔️
 
 ## Run Local 🛠️
 
