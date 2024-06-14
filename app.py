@@ -1,13 +1,31 @@
 import os
 import shutil
 
-download_folder_path = r"C:\Users\Eduardo\Downloads" #Substitua pelo endereço da sua pasta downloads.
-new_route = r"D:\Eduardo\Documents" #Substitua pelo endereço que deve ser colocada as pastas organizadas.
-for file in os.listdir(download_folder_path):
-    filename, file_extension = os.path.splitext(file)
-    file_extension = file_extension[1:]
-    folder_to_organize_file = f"{new_route}/{file_extension}"
+directory = "C:/Users/eduardo.cruz/Downloads/" #Substitua pelo endereço da sua pasta downloads.
+files = os.listdir(directory)
 
-    if not os.path.isdir(folder_to_organize_file):
-        os.mkdir(folder_to_organize_file)
-    shutil.move(f"{download_folder_path}/{file}", f"{folder_to_organize_file}/{file}")
+filetypes = [
+    [[".jpg", ".jpeg", ".png", ".gif"], "Imagens"],
+    [[".doc", ".docx", ".txt", "pptx"], "Documentos"],
+    [[".xlsx", ".csv"], "Planilhas"],
+    [[".pdf"], "PDFs"],
+    [[".zip"], "Zip"],
+    [[".sql", ".php", ".py", ".html", ".js", ".json"], "Codigos"],
+    [[".exe"], "Exe"],
+    [[".mp4", ".mp3", ".mpeg", ".mkv", ".mp2", ".m4r", ".avi", ".mpg", ".vob", ".mov", ".wav"], "Audio&Video"]
+]
+
+def get_folder_for_file(file, filetypes):
+    for extensions, folder in filetypes:
+        dir_path = directory+folder
+        if not os.path.exists(dir_path):
+            os.mkdir(dir_path)
+            print(dir_path)
+        if file.lower().endswith(tuple(extensions)):
+            return folder
+        continue
+
+for file in files:
+    folder = get_folder_for_file(file, filetypes)
+    if isinstance(folder, str):
+        shutil.move(os.path.join(directory, file), os.path.join(directory, folder, file))
