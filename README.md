@@ -24,7 +24,7 @@ Para transformar o projeto em executalvel basta:
 3. Instalar o pyinstaller:
   > `pip install pyinstaller`
 4. Baixar o  projeto como executavel
-  > `pyinstaller --noconsole --"Nome escolhido" app.py`
+  > `pyinstaller --noconsole --name "Nome escolhido" app.py`
 5. Encontre e execute o executável:
   - Após a conclusão, o executável estará na pasta dist dentro do diretório do projeto.
    
